@@ -979,12 +979,10 @@ def main(args):
                 snr = compute_snr(timesteps, noise_scheduler)
 
                 mse_loss_weights = (
-                        torch.stack(
-                            [snr, args.min_snr_gamma * torch.ones_like(timesteps)], dim=1
-                        ).min(dim=1)[0]
-                        / snr
+                            1 / (snr+1)
                 )
-                mse_loss_weights[snr == 0] = 1.0
+                #mse_loss_weights[snr == 0] = 1.0
+                
                 loss_scale = loss_scale * mse_loss_weights.to(loss_scale.device)
 
             loss = F.mse_loss(model_pred.float(), target.float(), reduction="none")

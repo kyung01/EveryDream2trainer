@@ -11,7 +11,7 @@
         "seed": "The seed to use when running validation and stabilization passes.",
         "use_relative_loss": "logs val/loss as negative relative to first pre-train val/loss value"
     },
-    "validate_training": true,
+    "validate_training": false,
     "val_split_mode": "automatic",
     "auto_split_proportion": 0.15,
     "manual_data_root": null,

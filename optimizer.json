@@ -17,7 +17,7 @@
         "unfreeze_last_n_layers": "if not null, freeze all parameters in the text encoder except for the last n layers and the final layer norm"
     },
     "base": {
-        "optimizer": "adamw8bit",
+        "optimizer": "adacoor",
         "lr": 1e-6,
         "lr_scheduler": "constant",
         "lr_decay_steps": null,
@@ -28,8 +28,8 @@
     },
     "text_encoder_overrides": {
         "optimizer": null,
-        "lr": 5e-7,
-        "lr_scheduler": "cosine",
+        "lr": 1e-10,
+        "lr_scheduler": "constant",
         "lr_decay_steps": null,
         "lr_warmup_steps": null,
         "betas": null,
